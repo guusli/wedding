@@ -2,8 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wedding Invitation</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Wedding invitation for Gustav & Mathilda"
+    />
+    <meta
+      property="og:title"
+      content="Wedding Invitation - Gustav & Mathilda"
+    />
+    <meta
+      property="og:description"
+      content="Wedding invitation for Gustav & Mathilda"
+    />
+    <meta property="og:image" content="Gustav & Mathilda-6 (kopia 2).png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Wedding Invitation - Gustav & Mathilda"
+    />
+    <meta
+      name="twitter:description"
+      content="Wedding invitation for Gustav & Mathilda"
+    />
+    <meta name="twitter:image" content="Gustav & Mathilda-6 (kopia 2).png" />
+    <title>Wedding Invitation - Gustav & Mathilda</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
       rel="stylesheet"
@@ -20,17 +47,36 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        height: 100dvh;
         background: #090909;
         font-family: "Be Vietnam Pro", sans-serif;
+        padding: env(safe-area-inset-top) env(safe-area-inset-right)
+          env(safe-area-inset-bottom) env(safe-area-inset-left);
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background: #fef7ec;
+        padding: 8px;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
       }
 
       .card {
-        height: 90vh;
-        width: 90vw;
+        height: 98vh;
+        height: 98dvh;
+        width: 98vw;
         max-width: 1200px;
         max-height: 800px;
         border-radius: 10px;
         cursor: pointer;
+        margin: 0;
       }
 
       .card-inner {
@@ -77,8 +123,11 @@
         -webkit-transform: rotateY(180deg);
         flex-direction: column;
         text-align: center;
-        padding: 60px;
-        border: 1px solid #e8e4d9;
+        padding: 0;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .overlay {
@@ -124,9 +173,27 @@
       }
 
       @media (max-width: 768px) {
+        body {
+          padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom)
+            20px;
+        }
+
+        .container {
+          padding: 4px;
+        }
+
         .card {
-          width: 95vw;
-          height: 95vh;
+          width: calc(100vw - 40px);
+          height: calc(
+            100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom) -
+              40px
+          );
+          height: calc(
+            100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) -
+              40px
+          );
+          max-width: none;
+          max-height: none;
         }
 
         .card-back {
@@ -141,6 +208,27 @@
       }
 
       @media (max-width: 480px) {
+        body {
+          padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom)
+            16px;
+        }
+
+        .container {
+          padding: 2px;
+        }
+
+        .card {
+          width: calc(100vw - 32px);
+          height: calc(
+            100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom) -
+              32px
+          );
+          height: calc(
+            100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) -
+              32px
+          );
+        }
+
         .card-back {
           padding: 30px 20px;
         }
@@ -151,17 +239,28 @@
           padding: 8px 16px;
         }
       }
+
+      @media (max-width: 450px) {
+        .card-back {
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          padding: 16px;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="card" id="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="overlay">
-            <div class="hint">Klicka för detaljer</div>
+    <div class="container">
+      <div class="card" id="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="overlay">
+              <div class="hint">Klicka för detaljer</div>
+            </div>
           </div>
+          <div class="card-back"></div>
         </div>
-        <div class="card-back"></div>
       </div>
     </div>
 
