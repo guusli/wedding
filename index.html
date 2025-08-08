@@ -155,13 +155,37 @@
                 transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
                 transform-style: preserve-3d;
                 -webkit-transform-style: preserve-3d;
-                max-width: 400px;
-                margin: 0 auto;
             }
 
             .card.flipped .card-inner {
                 transform: rotateY(180deg);
                 -webkit-transform: rotateY(180deg);
+            }
+
+            .card-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .cover-page {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #fef7ec;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                z-index: 2;
+                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .card.revealed .cover-page {
+                opacity: 0;
+                transform: translateY(-100%);
+                pointer-events: none;
             }
 
             .card-front,
@@ -192,17 +216,109 @@
                 -webkit-transform: rotateY(180deg);
                 flex-direction: column;
                 text-align: center;
-                padding: 40px;
                 border: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 font-family: "Be Vietnam Pro", sans-serif;
+            }
+
+            .invitation-card {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                transform: translateY(100%);
+                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .card.revealed .invitation-card {
+                transform: translateY(0);
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-align: center;
+            }
+
+            .overlay .hint {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1.2vw;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                background: #fef7ec;
+                color: #477435;
+                padding: 12px 24px;
+                border-radius: 50px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                opacity: 0;
+                animation: fadeInUp 1s ease-out 1.4s forwards;
+                white-space: nowrap;
+            }
+
+            .card.flipped .overlay .hint {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .card:not(.flipped) .overlay .hint {
+                animation: hintFadeIn 0.8s ease-out 0.8s forwards;
+            }
+
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            @keyframes hintFadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .cover-title {
+                font-size: 1em;
+                font-weight: 300;
+                color: #477435;
+                margin-bottom: 20px;
+            }
+
+            .cover-names {
+                font-size: 1.8rem;
+                font-weight: 400;
+                color: #477435;
+                margin-bottom: 40px;
+                line-height: 1.4;
+                text-transform: uppercase;
+            }
+
+            .cover-hint {
+                font-size: 1rem;
+                font-weight: 500;
+                color: #477435;
+                background: transparent;
+                padding: 12px 24px;
+                border-radius: 50px;
+                border: 2px solid #477435;
             }
 
             .invitation-content {
                 width: 100%;
-                max-width: 500px;
+                max-width: 600px;
             }
 
             .welcome-section {
@@ -264,63 +380,6 @@
                 text-align: center;
             }
 
-            .overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                text-align: center;
-            }
-
-            .overlay .hint {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 1.2vw;
-                font-weight: 500;
-                letter-spacing: 0.5px;
-                background: #fef7ec;
-                color: #477435;
-                padding: 12px 24px;
-                border-radius: 50px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                opacity: 0;
-                animation: fadeInUp 1s ease-out 1.4s forwards;
-                white-space: nowrap;
-            }
-
-            .card.flipped .overlay .hint {
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            .card:not(.flipped) .overlay .hint {
-                animation: hintFadeIn 0.8s ease-out 0.8s forwards;
-            }
-
-            @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translate(-50%, -50%);
-                }
-            }
-
-            @keyframes hintFadeIn {
-                from {
-                    opacity: 0;
-                }
-                to {
-                    opacity: 1;
-                }
-            }
-
             @media (max-width: 768px) {
                 body {
                     padding: env(safe-area-inset-top) 20px
@@ -345,7 +404,7 @@
                     max-height: none;
                 }
 
-                .card-back {
+                .invitation-card {
                     padding: 30px 25px;
                 }
 
@@ -382,6 +441,19 @@
                     gap: 20px;
                 }
 
+                .cover-title {
+                    font-size: 1em;
+                }
+
+                .cover-names {
+                    font-size: 1.4rem;
+                }
+
+                .cover-hint {
+                    font-size: 0.9rem;
+                    padding: 10px 20px;
+                }
+
                 .overlay .hint {
                     font-size: 3vw;
                     padding: 10px 20px;
@@ -410,7 +482,7 @@
                     );
                 }
 
-                .card-back {
+                .invitation-card {
                     padding: 20px 15px;
                 }
 
@@ -444,6 +516,19 @@
                     font-size: 12px;
                 }
 
+                .cover-title {
+                    font-size: 1em;
+                }
+
+                .cover-names {
+                    font-size: 1.2rem;
+                }
+
+                .cover-hint {
+                    font-size: 0.8rem;
+                    padding: 8px 16px;
+                }
+
                 .overlay .hint {
                     font-size: 4vw;
                     padding: 8px 16px;
@@ -451,7 +536,7 @@
             }
 
             @media (max-width: 450px) {
-                .card-back {
+                .invitation-card {
                     padding: 16px;
                 }
 
@@ -488,51 +573,78 @@
     <body>
         <div class="container">
             <div class="card" id="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <div class="overlay">
-                            <div class="hint">Klicka för detaljer</div>
+                <div class="card-container">
+                    <div class="cover-page">
+                        <div class="cover-title" id="cover-title">Till</div>
+                        <div class="cover-names" id="addressee-names">
+                            Välkommen!
+                        </div>
+                        <div class="cover-hint">
+                            Tryck för att öppna inbjudan
                         </div>
                     </div>
-                    <div class="card-back">
-                        <div class="invitation-content">
-                            <div class="welcome-section welcome-section-styled">
-                                <p class="welcome-text welcome-text-styled">
-                                    Varmt välkommen till vigseln mellan
-                                </p>
-                                <p class="names names-styled">
-                                    Gustav<span class="ampersand">&amp;</span
-                                    ><br />Mathilda
-                                </p>
-                                <p class="date-time date-time-styled">
-                                    4 Oktober 2025, klockan 10.30
-                                </p>
-                            </div>
 
-                            <div class="details-section details-section-styled">
-                                <div class="two-column">
-                                    <div class="column column-first-styled">
-                                        <div class="address">
-                                            Carl Eldhs Ateljémuseum<br />
-                                            Lögebodavägen 10<br />
-                                            113 47 Stockholm
-                                        </div>
-                                        <div>
-                                            Följs av bröllopslunch och mingel
-                                        </div>
+                    <div class="invitation-card">
+                        <div class="card-inner">
+                            <div class="card-front"></div>
+                            <div class="card-back">
+                                <div class="invitation-content">
+                                    <div
+                                        class="welcome-section welcome-section-styled"
+                                    >
+                                        <p
+                                            class="welcome-text welcome-text-styled"
+                                        >
+                                            Varmt välkommen till vigseln mellan
+                                        </p>
+                                        <p class="names names-styled">
+                                            Gustav<span class="ampersand"
+                                                >&amp;</span
+                                            ><br />Mathilda
+                                        </p>
+                                        <p class="date-time date-time-styled">
+                                            4 Oktober 2025, klockan 10.30
+                                        </p>
                                     </div>
-                                    <div class="column column-second-styled">
-                                        <div><span>Klädsel:</span> Kavaj</div>
-                                        <div>
-                                            OSA senast 1 September<br />
-                                            till
-                                            <a
-                                                href="tel:0731437742"
-                                                class="phone-link"
-                                                >0731437742</a
+
+                                    <div
+                                        class="details-section details-section-styled"
+                                    >
+                                        <div class="two-column">
+                                            <div
+                                                class="column column-first-styled"
                                             >
+                                                <div class="address">
+                                                    Carl Eldhs Ateljémuseum<br />
+                                                    Lögebodavägen 10<br />
+                                                    113 47 Stockholm
+                                                </div>
+                                                <div>
+                                                    Följs av bröllopslunch och
+                                                    mingel
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="column column-second-styled"
+                                            >
+                                                <div>
+                                                    <span>Klädsel:</span> Kavaj
+                                                </div>
+                                                <div>
+                                                    OSA senast 1 September<br />
+                                                    till
+                                                    <a
+                                                        href="tel:0731437742"
+                                                        class="phone-link"
+                                                        >0731437742</a
+                                                    >
+                                                </div>
+                                                <span
+                                                    >Ytterligare detaljer
+                                                    följer</span
+                                                >
+                                            </div>
                                         </div>
-                                        <span>Ytterligare detaljer följer</span>
                                     </div>
                                 </div>
                             </div>
@@ -543,19 +655,61 @@
         </div>
 
         <script>
+            // Group definitions
+            const groups = {
+                anna: "Anna, Dan, Frank & Axel",
+                jenny: "Jenny, Dennis, Tove-Lovisa & Valter",
+                brittmarie: "Britt-Marie",
+                camilla: "Camilla & Mikael",
+                martina: "Martina, Pehr, Nils & Signe",
+                malena: "Malena, Rasmus & Freya",
+                tuisku: "Tuisku",
+            };
+
+            // Get addressee from URL parameter
+            function getAddresseeFromURL() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const group = urlParams.get("to");
+
+                if (group && groups[group.toLowerCase()]) {
+                    document.getElementById("cover-title").textContent = "Till";
+                    return groups[group.toLowerCase()];
+                }
+
+                // Default fallback - no parameter provided
+                document.getElementById("cover-title").textContent = "";
+                return "Välkommen!";
+            }
+
+            // Set the addressee names on page load
+            document.getElementById("addressee-names").textContent =
+                getAddresseeFromURL();
+
             const card = document.getElementById("card");
-            let isFlipped = false;
+            let stage = 0; // 0: cover, 1: front, 2: back
 
             card.addEventListener("click", function () {
-                console.log("Card clicked! Current state:", isFlipped);
-                if (!isFlipped) {
-                    card.classList.add("flipped");
-                    isFlipped = true;
-                    console.log("Flipping to back");
-                } else {
-                    card.classList.remove("flipped");
-                    isFlipped = false;
-                    console.log("Flipping to front");
+                console.log("Card clicked! Current stage:", stage);
+
+                if (stage === 0) {
+                    // Cover -> Front
+                    card.classList.add("revealed");
+                    stage = 1;
+                    console.log("Showing front card");
+
+                    // Auto flip to back after 1 second
+                    setTimeout(() => {
+                        if (stage === 1) {
+                            card.classList.add("flipped");
+                            stage = 2;
+                            console.log("Auto-flipping to back");
+                        }
+                    }, 1000);
+                } else if (stage === 2) {
+                    // Back -> Cover (reset)
+                    card.classList.remove("revealed", "flipped");
+                    stage = 0;
+                    console.log("Back to cover");
                 }
             });
 
