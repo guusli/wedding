@@ -64,7 +64,53 @@
                 font-size: 0.8em;
                 vertical-align: middle;
                 margin: 0 8px;
-                font-weight: 800;
+            }
+
+            .phone-link {
+                color: inherit;
+                text-decoration: none;
+                -webkit-text-decoration-color: inherit;
+                -webkit-appearance: none;
+            }
+
+            .welcome-section-styled {
+                margin-top: 32px;
+            }
+
+            .welcome-text-styled {
+                font-size: 24px;
+                font-weight: 300;
+                margin: 8px;
+            }
+
+            .names-styled {
+                font-size: 64px;
+                line-height: 1.1;
+                text-align: left;
+                display: inline-block;
+                margin: 0 auto;
+            }
+
+            .date-time-styled {
+                font-size: 24px;
+                font-weight: 300;
+            }
+
+            .details-section-styled {
+                font-size: 15px;
+                font-weight: 300;
+                width: 400px;
+                margin: 0 auto;
+            }
+
+            .column-first-styled {
+                padding: 0;
+            }
+
+            .column-second-styled {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
             }
         </style>
         <style>
@@ -108,6 +154,7 @@
                 border-radius: 0;
                 cursor: pointer;
                 margin: 0;
+                opacity: 0;
             }
 
             .card-inner {
@@ -214,10 +261,6 @@
                 flex: 1;
             }
 
-            .column:first-child {
-                padding-right: 20px;
-            }
-
             .address {
                 margin-bottom: 15px;
                 line-height: 1.4;
@@ -320,12 +363,24 @@
                     letter-spacing: 3px;
                 }
 
+                .welcome-text-styled {
+                    font-size: 16px;
+                }
+
+                .date-time-styled {
+                    font-size: 20px;
+                }
+
+                .details-section-styled {
+                    font-size: 13px;
+                }
+
                 .welcome-text {
-                    font-size: 18px;
+                    font-size: 16px;
                 }
 
                 .date-time {
-                    font-size: 18px;
+                    font-size: 20px;
                 }
 
                 .details-section {
@@ -334,10 +389,6 @@
 
                 .two-column {
                     gap: 20px;
-                }
-
-                .column:first-child {
-                    padding-right: 15px;
                 }
 
                 .overlay .hint {
@@ -377,12 +428,25 @@
                     letter-spacing: 2px;
                 }
 
+                .welcome-text-styled {
+                    font-size: 14px;
+                }
+
+                .date-time-styled {
+                    font-size: 14px;
+                }
+
+                .details-section-styled {
+                    font-size: 10px;
+                    width: 320px;
+                }
+
                 .welcome-text {
                     font-size: 14px;
                 }
 
                 .date-time {
-                    font-size: 16px;
+                    font-size: 18px;
                 }
 
                 .details-section {
@@ -404,12 +468,24 @@
                     font-size: 64px;
                 }
 
+                .welcome-text-styled {
+                    font-size: 14px;
+                }
+
+                .date-time-styled {
+                    font-size: 14px;
+                }
+
+                .details-section-styled {
+                    font-size: 10px;
+                }
+
                 .welcome-text {
                     font-size: 13px;
                 }
 
                 .date-time {
-                    font-size: 15px;
+                    font-size: 16px;
                 }
 
                 .details-section {
@@ -429,52 +505,22 @@
                     </div>
                     <div class="card-back">
                         <div class="invitation-content">
-                            <div
-                                class="welcome-section"
-                                style="margin-top: 32px"
-                            >
-                                <p
-                                    class="welcome-text"
-                                    style="
-                                        font-size: 14px;
-                                        font-weight: 300;
-                                        margin: 8px;
-                                    "
-                                >
+                            <div class="welcome-section welcome-section-styled">
+                                <p class="welcome-text welcome-text-styled">
                                     Varmt välkommen till vigseln mellan
                                 </p>
-                                <p
-                                    class="names"
-                                    style="
-                                        font-size: 64px;
-                                        line-height: 1.1;
-                                        text-align: left;
-                                        width: 280px;
-                                        margin: 0 auto;
-                                    "
-                                >
+                                <p class="names names-styled">
                                     Gustav<span class="ampersand">&amp;</span
                                     ><br />Mathilda
                                 </p>
-                                <p
-                                    class="date-time"
-                                    style="font-size: 14px; font-weight: 300"
-                                >
+                                <p class="date-time date-time-styled">
                                     4 Oktober 2025, klockan 10.30
                                 </p>
                             </div>
 
-                            <div
-                                class="details-section"
-                                style="
-                                    font-size: 10px;
-                                    font-weight: 300;
-                                    width: 277px;
-                                    margin: 0 auto;
-                                "
-                            >
+                            <div class="details-section details-section-styled">
                                 <div class="two-column">
-                                    <div class="column" style="padding: 0">
+                                    <div class="column column-first-styled">
                                         <div class="address">
                                             Carl Eldhs Ateljémuseum<br />
                                             Lögebodavägen 10<br />
@@ -484,20 +530,18 @@
                                             Följs av bröllopslunch och mingel
                                         </div>
                                     </div>
-                                    <div
-                                        class="column"
-                                        style="
-                                            display: flex;
-                                            flex-direction: column;
-                                            gap: 12px;
-                                        "
-                                    >
+                                    <div class="column column-second-styled">
                                         <div><span>Klädsel:</span> Kavaj</div>
                                         <div>
-                                            OSA senast 10 September<br />
-                                            till 0731437742
+                                            OSA senast 1 September<br />
+                                            till
+                                            <a
+                                                href="tel:0731437742"
+                                                class="phone-link"
+                                                >0731437742</a
+                                            >
                                         </div>
-                                        <span>Välkommen!</span>
+                                        <span>Ytterligare detaljer följer</span>
                                     </div>
                                 </div>
                             </div>
@@ -526,8 +570,6 @@
 
             // Simple fade-in animation
             window.addEventListener("load", function () {
-                card.style.opacity = "0";
-
                 setTimeout(() => {
                     card.style.transition = "opacity 0.8s ease";
                     card.style.opacity = "1";
