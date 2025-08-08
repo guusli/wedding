@@ -705,11 +705,16 @@
                             console.log("Auto-flipping to back");
                         }
                     }, 1000);
+                } else if (stage === 1) {
+                    // Front -> Back (manual click)
+                    card.classList.add("flipped");
+                    stage = 2;
+                    console.log("Manual flip to back");
                 } else if (stage === 2) {
-                    // Back -> Cover (reset)
-                    card.classList.remove("revealed", "flipped");
-                    stage = 0;
-                    console.log("Back to cover");
+                    // Back -> Front
+                    card.classList.remove("flipped");
+                    stage = 1;
+                    console.log("Back to front");
                 }
             });
 
