@@ -119,29 +119,31 @@
                 height: 100dvh;
                 background: #090909;
                 font-family: "Be Vietnam Pro", sans-serif;
-                padding: env(safe-area-inset-top) env(safe-area-inset-right)
-                    env(safe-area-inset-bottom) env(safe-area-inset-left);
+                padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom)
+                    0;
                 margin: 0;
                 box-sizing: border-box;
+                overflow: hidden;
             }
 
             .container {
                 background: #fef7ec;
-                padding: 16px;
-                border-radius: 20px;
+                border-radius: 0;
                 width: 100%;
+                height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 box-sizing: border-box;
+                padding: 0;
             }
 
             .card {
-                height: 98vh;
-                height: 98dvh;
-                width: 98vw;
-                max-width: 1200px;
-                max-height: 800px;
+                height: 100vh;
+                height: 100dvh;
+                width: 100vw;
+                max-width: 500px;
+                max-height: none;
                 border-radius: 0;
                 cursor: pointer;
                 margin: 0;
@@ -150,8 +152,9 @@
 
             .card-inner {
                 position: relative;
-                width: 100%;
-                height: 100%;
+                width: calc(100% + 42px);
+                height: calc(100% + 42px);
+                margin: -16px;
                 transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
                 transform-style: preserve-3d;
                 -webkit-transform-style: preserve-3d;
@@ -207,6 +210,10 @@
                 background: url("front.png") center center;
                 background-size: cover;
                 background-repeat: no-repeat;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
             }
 
             .card-back {
@@ -216,6 +223,7 @@
                 -webkit-transform: rotateY(180deg);
                 flex-direction: column;
                 text-align: center;
+                padding: 0;
                 border: none;
                 font-family: "Be Vietnam Pro", sans-serif;
             }
@@ -225,7 +233,7 @@
                 width: 100%;
                 height: 100%;
                 z-index: 1;
-                transform: translateY(100%);
+                transform: translateY(120%);
                 transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             }
 
@@ -382,12 +390,12 @@
 
             @media (max-width: 768px) {
                 body {
-                    padding: env(safe-area-inset-top) 20px
-                        env(safe-area-inset-bottom) 20px;
+                    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+                        env(safe-area-inset-bottom) env(safe-area-inset-left);
                 }
 
                 .container {
-                    padding: 12px;
+                    padding: 0;
                 }
 
                 .card {
@@ -402,10 +410,6 @@
                     );
                     max-width: none;
                     max-height: none;
-                }
-
-                .invitation-card {
-                    padding: 30px 25px;
                 }
 
                 .names {
@@ -462,12 +466,12 @@
 
             @media (max-width: 480px) {
                 body {
-                    padding: env(safe-area-inset-top) 16px
-                        env(safe-area-inset-bottom) 16px;
+                    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+                        env(safe-area-inset-bottom) env(safe-area-inset-left);
                 }
 
                 .container {
-                    padding: 8px;
+                    padding: 0;
                 }
 
                 .card {
@@ -480,10 +484,6 @@
                         100dvh - env(safe-area-inset-top) -
                             env(safe-area-inset-bottom) - 32px
                     );
-                }
-
-                .invitation-card {
-                    padding: 20px 15px;
                 }
 
                 .names {
@@ -536,10 +536,6 @@
             }
 
             @media (max-width: 450px) {
-                .invitation-card {
-                    padding: 16px;
-                }
-
                 .names {
                     font-size: 64px;
                 }
