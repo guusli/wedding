@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta name="description" content="Honeymoon Fund - Gustav & Mathilda" />
+        <meta
+            property="og:title"
+            content="Honeymoon Fund - Gustav & Mathilda"
+        />
+        <meta
+            property="og:description"
+            content="Honeymoon Fund - Gustav & Mathilda"
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Honeymoon Fund - Gustav & Mathilda"
+        />
+        <meta
+            name="twitter:description"
+            content="Honeymoon Fund - Gustav & Mathilda"
+        />
+        <title>Honeymoon Fund - Gustav & Mathilda</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            @font-face {
+                font-family: "Ahsing";
+                src: url("ahsing-regular.otf") format("opentype");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: "Coffekan Regular";
+                src: url("CoffekanRegular.ttf") format("truetype");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    "Be Vietnam Pro",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                background: #fef7ec;
+                min-height: 100vh;
+                color: #477435;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            /* Navigation */
+            .nav {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            .nav-link {
+                display: inline-block;
+                padding: 10px 20px;
+                background: rgba(255, 255, 255, 0.9);
+                color: #333;
+                text-decoration: none;
+                border-radius: 25px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-link:hover {
+                background: rgba(255, 255, 255, 1);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Jumbotron */
+            .jumbotron {
+                text-align: center;
+                padding: 100px 20px 80px;
+                background: #fef7ec;
+                margin-bottom: 60px;
+            }
+
+            .jumbotron-title {
+                font-family: "Ahsing", serif;
+                font-size: clamp(3rem, 8vw, 6rem);
+                line-height: 1.1;
+                color: #477435;
+                margin-bottom: 20px;
+            }
+
+            .ampersand {
+                font-family: "Coffekan Regular", cursive;
+                font-size: 0.8em;
+                vertical-align: middle;
+                margin: 0 0.2em;
+            }
+
+            .jumbotron-subtitle {
+                font-size: 1.5rem;
+                font-weight: 300;
+                color: #477435;
+                margin-bottom: 30px;
+            }
+
+            .jumbotron-description {
+                font-size: 1.1rem;
+                color: #477435;
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.6;
+            }
+
+            /* Activity Grid */
+            .activities-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+
+            .activity-card {
+                background: white;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .activity-image {
+                width: 100%;
+                height: 250px;
+                background: linear-gradient(135deg, #477435 0%, #2c4a23 100%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                color: white;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .activity-image::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(1px);
+            }
+
+            .activity-image-icon {
+                font-size: 3rem;
+                margin-bottom: 10px;
+                z-index: 1;
+            }
+
+            .activity-image-text {
+                z-index: 1;
+                text-align: center;
+                font-weight: 500;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+            }
+
+            .activity-content {
+                padding: 25px;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+
+            .activity-title {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: #477435;
+                margin-bottom: 10px;
+            }
+
+            .activity-description {
+                color: #6a6a6a;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                font-size: 0.95rem;
+                flex-grow: 1;
+            }
+
+            .activity-button {
+                background: #477435;
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 25px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 1rem;
+                width: 100%;
+            }
+
+            .activity-button:hover {
+                transform: translateY(-1px);
+            }
+
+            .activity-button:active {
+                transform: translateY(0);
+            }
+
+            .activity-button:focus {
+                outline: none;
+            }
+
+            /* Modal */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 2000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(5px);
+            }
+
+            .modal-content {
+                background-color: white;
+                margin: 5% auto;
+                padding: 40px;
+                border-radius: 20px;
+                width: 90%;
+                max-width: 500px;
+                text-align: center;
+                position: relative;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            }
+
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                color: #aaa;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+
+            .close:hover {
+                color: #333;
+            }
+
+            .modal-title {
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: #477435;
+                margin-bottom: 20px;
+            }
+
+            .qr-code {
+                width: 200px;
+                height: 200px;
+                background: #000;
+                margin: 20px auto;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 500;
+            }
+
+            .modal-instructions {
+                color: #6a6a6a;
+                line-height: 1.6;
+                margin-top: 20px;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .container {
+                    padding: 10px;
+                }
+
+                .jumbotron {
+                    padding: 60px 20px 40px;
+                    margin-bottom: 40px;
+                }
+
+                .jumbotron-title {
+                    font-size: clamp(2.5rem, 10vw, 4rem);
+                }
+
+                .activities-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .activity-card {
+                    margin: 0 10px;
+                }
+
+                .modal-content {
+                    margin: 10% auto;
+                    padding: 30px;
+                    width: 95%;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .jumbotron {
+                    padding: 40px 15px 30px;
+                }
+
+                .jumbotron-title {
+                    font-size: clamp(2rem, 12vw, 3rem);
+                }
+
+                .jumbotron-subtitle {
+                    font-size: 1.2rem;
+                }
+
+                .activity-content {
+                    padding: 20px;
+                }
+
+                .modal-content {
+                    padding: 25px;
+                    margin: 15% auto;
+                }
+
+                .qr-code {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="jumbotron-title">
+                    Gustav <span class="ampersand">&</span> Mathilda
+                </h1>
+                <h2 class="jumbotron-subtitle">Honeymoon Fund</h2>
+                <p class="jumbotron-description">
+                    Hjälp oss att skapa magiska minnen under vår bröllopsresa!
+                    Här kan ni bidra till olika aktiviteter och upplevelser som
+                    vi kommer att dela tillsammans.
+                </p>
+            </div>
+
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div
+                        class="activity-image"
+                        style="
+                            background-image: url(&quot;honeymoon-images/test.jpg&quot;);
+                            background-size: cover;
+                            background-position: center;
+                        "
+                    >
+                        <div class="activity-image-text">
+                            Middag på Figlmüller
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">
+                            Wiener Schnitzel på Figlmüller
+                        </h3>
+                        <p class="activity-description">
+                            Traditionell österrikisk middag på Wiens mest
+                            berömda schnitzel-restaurang. En autentisk
+                            kulinarisk upplevelse i hjärtat av gamla stan.
+                        </p>
+                        <button
+                            class="activity-button"
+                            onclick="openModal('Wiener Schnitzel på Figlmüller')"
+                        >
+                            Bidra till denna
+                        </button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <div class="activity-image-text">
+                            Operabesök på Staatsoper
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">
+                            Kväll på Wiener Staatsoper
+                        </h3>
+                        <p class="activity-description">
+                            En magisk operakväll på Wiens världsberömda
+                            operahus. Upplev klassisk musik och opera i en av
+                            världens mest prestigefulla operahus.
+                        </p>
+                        <button
+                            class="activity-button"
+                            onclick="openModal('Kväll på Wiener Staatsoper')"
+                        >
+                            Bidra till denna
+                        </button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <div class="activity-image-text">Hotel Sacher Wien</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">
+                            Romantisk natt på Hotel Sacher
+                        </h3>
+                        <p class="activity-description">
+                            Lyxovernatting på det ikoniska Hotel Sacher, hem
+                            till den berömda Sachertorten. Kunglig elegans mitt
+                            emot operahuset med förstklassig service.
+                        </p>
+                        <button
+                            class="activity-button"
+                            onclick="openModal('Romantisk natt på Hotel Sacher')"
+                        >
+                            Bidra till denna
+                        </button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <div class="activity-image-text">Slott Schönbrunn</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">
+                            Rundtur på Slott Schönbrunn
+                        </h3>
+                        <p class="activity-description">
+                            Utforska det magnifika Schönbrunn-palatset och dess
+                            vackra trädgårdar. En resa genom österrikisk
+                            historia och kejserlig prakt.
+                        </p>
+                        <button
+                            class="activity-button"
+                            onclick="openModal('Rundtur på Slott Schönbrunn')"
+                        >
+                            Bidra till denna
+                        </button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <div class="activity-image-text">
+                            Wiener Kaffeehäuser
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">Kaffekultur-rundtur</h3>
+                        <p class="activity-description">
+                            Upptäck Wiens berömda kaffekultur på traditionella
+                            kaffeehäuser som Café Central och Café Hawelka.
+                            Inklusive äkta Sachertorte och Melange.
+                        </p>
+                        <button
+                            class="activity-button"
+                            onclick="openModal('Kaffekultur-rundtur')"
+                        >
+                            Bidra till denna
+                        </button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <div class="activity-image-text">Donau-kryssning</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 class="activity-title">
+                            Romantisk Donau-kryssning
+                        </h3>
+                        <p class="activity-description">
+                            En avkopplande båttur längs Donau med middag och
+                            utsikt över Wiens vackra arkitektur. Perfekt för en
+                            romantisk kväll tillsammans.
+                        </p>
+                        <button
+                            class="activity-button"
+                            onclick="openModal('Romantisk Donau-kryssning')"
+                        >
+                            Bidra till denna
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="contributionModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 class="modal-title" id="modalTitle">
+                    Bidra till aktivitet
+                </h2>
+                <div class="qr-code">QR-kod kommer här</div>
+                <div class="modal-instructions">
+                    <p><strong>Så här bidrar du:</strong></p>
+                    <p>1. Scanna QR-koden med din telefon</p>
+                    <p>2. Följ instruktionerna för att göra din gåva</p>
+                    <p>3. Tack så mycket för ditt bidrag! ❤️</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function openModal(activityName) {
+                document.getElementById("modalTitle").textContent =
+                    `Bidra till: ${activityName}`;
+                document.getElementById("contributionModal").style.display =
+                    "block";
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeModal() {
+                document.getElementById("contributionModal").style.display =
+                    "none";
+                document.body.style.overflow = "auto";
+            }
+
+            // Close modal when clicking outside of it
+            window.onclick = function (event) {
+                const modal = document.getElementById("contributionModal");
+                if (event.target === modal) {
+                    closeModal();
+                }
+            };
+
+            // Close modal with Escape key
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeModal();
+                }
+            });
+
+            // Smooth fade-in animation
+            window.addEventListener("load", function () {
+                document.body.style.opacity = "0";
+                document.body.style.transition = "opacity 0.5s ease";
+
+                setTimeout(() => {
+                    document.body.style.opacity = "1";
+                }, 100);
+            });
+        </script>
+    </body>
+</html>
