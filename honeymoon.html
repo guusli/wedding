@@ -130,9 +130,10 @@
             .jumbotron-description {
                 font-size: 1.1rem;
                 color: #477435;
-                max-width: 600px;
+                max-width: 800px;
                 margin: 0 auto;
                 line-height: 1.6;
+                margin-bottom: 30px;
             }
 
             /* Activity Grid */
@@ -147,7 +148,7 @@
                 background: white;
                 border-radius: 15px;
                 overflow: hidden;
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
                 border: 1px solid rgba(0, 0, 0, 0.05);
                 display: flex;
                 flex-direction: column;
@@ -176,7 +177,6 @@
                 right: 0;
                 bottom: 0;
                 background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(1px);
             }
 
             .activity-image-icon {
@@ -371,11 +371,21 @@
                 <h1 class="jumbotron-title">
                     Gustav <span class="ampersand">&</span> Mathilda
                 </h1>
-                <h2 class="jumbotron-subtitle">Honeymoon Fund</h2>
                 <p class="jumbotron-description">
-                    Hjälp oss att skapa magiska minnen under vår bröllopsresa!
-                    Här kan ni bidra till olika aktiviteter och upplevelser som
-                    vi kommer att dela tillsammans.
+                    År 2017 åkte vi på vår första weekendresa tillsammans med
+                    destination Wien. Mathildas stora önskan att gå på Leopold
+                    Museum och uppleva Donau uppfylldes. Likaså Gustavs längtan
+                    efter schnitzel och att köpa svinbilliga biljetter till
+                    Operans ståplatser. Det var en fantastisk resa – även om vi
+                    gick från operan i pausen för att platserna var outhärdliga
+                    och att det visade sig i efterhand att vi aldrig ens såg
+                    Donau utan någon mesig liten “för-kanal”...
+                </p>
+                <p class="jumbotron-description">
+                    Nu får vi dock en ny chans! Och ni kan hjälpa oss! Nedan
+                    finns ett urval av gåvor ni kan donera till. Att bidra är
+                    såklart helt frivilligt och storleken på bidragen är helt
+                    upp till er.
                 </p>
             </div>
 
@@ -384,27 +394,21 @@
                     <div
                         class="activity-image"
                         style="
-                            background-image: url(&quot;honeymoon-images/test.jpg&quot;);
+                            background-image: url(&quot;honeymoon-images/flygbiljetter.jpeg&quot;);
                             background-size: cover;
                             background-position: center;
                         "
-                    >
-                        <div class="activity-image-text">
-                            Middag på Figlmüller
-                        </div>
-                    </div>
+                    ></div>
                     <div class="activity-content">
-                        <h3 class="activity-title">
-                            Wiener Schnitzel på Figlmüller
-                        </h3>
+                        <h3 class="activity-title">Flygbiljetter</h3>
                         <p class="activity-description">
-                            Traditionell österrikisk middag på Wiens mest
-                            berömda schnitzel-restaurang. En autentisk
-                            kulinarisk upplevelse i hjärtat av gamla stan.
+                            Gustav hade gärna tagit tåget ner, men Mathilda
+                            tyckte att det kändes väl tidskrävande för en
+                            weekendresa...
                         </p>
                         <button
                             class="activity-button"
-                            onclick="openModal('Wiener Schnitzel på Figlmüller')"
+                            onclick="openModal('Flygbiljetter')"
                         >
                             Bidra till denna
                         </button>
@@ -412,23 +416,26 @@
                 </div>
 
                 <div class="activity-card">
-                    <div class="activity-image">
-                        <div class="activity-image-text">
-                            Operabesök på Staatsoper
-                        </div>
-                    </div>
+                    <div
+                        class="activity-image"
+                        style="
+                            background-image: url(&quot;honeymoon-images/hummerkrautfleisch.jpeg&quot;);
+                            background-size: cover;
+                            background-position: center;
+                        "
+                    ></div>
                     <div class="activity-content">
-                        <h3 class="activity-title">
-                            Kväll på Wiener Staatsoper
-                        </h3>
+                        <h3 class="activity-title">Hummerkrautfleisch</h3>
                         <p class="activity-description">
-                            En magisk operakväll på Wiens världsberömda
-                            operahus. Upplev klassisk musik och opera i en av
-                            världens mest prestigefulla operahus.
+                            Inför besöket 2017 hade vi ett gemensamt sparande
+                            öronmärkt för att besöka restaurang Vestibul och äta
+                            deras BERÖMDA Hummerkrautfleisch. Vilket är typ vad
+                            det låter som. Hummerkålskött. Ungefär. Vi gör det
+                            gärna igen!
                         </p>
                         <button
                             class="activity-button"
-                            onclick="openModal('Kväll på Wiener Staatsoper')"
+                            onclick="openModal('Hummerkrautfleisch')"
                         >
                             Bidra till denna
                         </button>
@@ -436,21 +443,23 @@
                 </div>
 
                 <div class="activity-card">
-                    <div class="activity-image">
-                        <div class="activity-image-text">Hotel Sacher Wien</div>
-                    </div>
+                    <div
+                        class="activity-image"
+                        style="
+                            background-image: url(&quot;honeymoon-images/cykelturer.jpeg&quot;);
+                            background-size: cover;
+                            background-position: center;
+                        "
+                    ></div>
                     <div class="activity-content">
-                        <h3 class="activity-title">
-                            Romantisk natt på Hotel Sacher
-                        </h3>
+                        <h3 class="activity-title">Diverse cykelturer</h3>
                         <p class="activity-description">
-                            Lyxovernatting på det ikoniska Hotel Sacher, hem
-                            till den berömda Sachertorten. Kunglig elegans mitt
-                            emot operahuset med förstklassig service.
+                            Vi är vana att ta oss fram på våra hojjar. Varför
+                            skulle vi göra annorlunda when in Vienna?
                         </p>
                         <button
                             class="activity-button"
-                            onclick="openModal('Romantisk natt på Hotel Sacher')"
+                            onclick="openModal('Diverse cykelturer')"
                         >
                             Bidra till denna
                         </button>
@@ -458,21 +467,26 @@
                 </div>
 
                 <div class="activity-card">
-                    <div class="activity-image">
-                        <div class="activity-image-text">Slott Schönbrunn</div>
-                    </div>
+                    <div
+                        class="activity-image"
+                        style="
+                            background-image: url(&quot;honeymoon-images/konst.jpeg&quot;);
+                            background-size: cover;
+                            background-position: center;
+                        "
+                    ></div>
                     <div class="activity-content">
-                        <h3 class="activity-title">
-                            Rundtur på Slott Schönbrunn
-                        </h3>
+                        <h3 class="activity-title">Allt för konsten!</h3>
                         <p class="activity-description">
-                            Utforska det magnifika Schönbrunn-palatset och dess
-                            vackra trädgårdar. En resa genom österrikisk
-                            historia och kejserlig prakt.
+                            Det må inte vara lika hutlöst dyrt med inträde till
+                            museum som i Stockholm (tack som fan, Ulf
+                            Kristersson...) men det finns en RAD museum som man
+                            helt enkelt MÅSTE besöka i Wien och tyvärr finns
+                            ingen mängdrabatt.
                         </p>
                         <button
                             class="activity-button"
-                            onclick="openModal('Rundtur på Slott Schönbrunn')"
+                            onclick="openModal('Allt för konsten!')"
                         >
                             Bidra till denna
                         </button>
@@ -480,21 +494,26 @@
                 </div>
 
                 <div class="activity-card">
-                    <div class="activity-image">
-                        <div class="activity-image-text">
-                            Wiener Kaffeehäuser
-                        </div>
-                    </div>
+                    <div
+                        class="activity-image"
+                        style="
+                            background-image: url(&quot;honeymoon-images/operan.jpeg&quot;);
+                            background-size: cover;
+                            background-position: center;
+                        "
+                    ></div>
                     <div class="activity-content">
-                        <h3 class="activity-title">Kaffekultur-rundtur</h3>
+                        <h3 class="activity-title">Operan! Igen!</h3>
                         <p class="activity-description">
-                            Upptäck Wiens berömda kaffekultur på traditionella
-                            kaffeehäuser som Café Central och Café Hawelka.
-                            Inklusive äkta Sachertorte och Melange.
+                            Vi betalade 3€ per biljett sist och fick stå uppe
+                            bland strålkastarna. Det var en upplevelse som man
+                            bör vara 1) väldigt ung, eller 2) väldigt hängiven
+                            för att klara av. Vi är lite mittemellan så
+                            sittplatser är att föredra denna gång.
                         </p>
                         <button
                             class="activity-button"
-                            onclick="openModal('Kaffekultur-rundtur')"
+                            onclick="openModal('Operan! Igen!')"
                         >
                             Bidra till denna
                         </button>
@@ -502,21 +521,26 @@
                 </div>
 
                 <div class="activity-card">
-                    <div class="activity-image">
-                        <div class="activity-image-text">Donau-kryssning</div>
-                    </div>
+                    <div
+                        class="activity-image"
+                        style="
+                            background-image: url(&quot;honeymoon-images/wienprovning.jpeg&quot;);
+                            background-size: cover;
+                            background-position: center;
+                        "
+                    ></div>
                     <div class="activity-content">
-                        <h3 class="activity-title">
-                            Romantisk Donau-kryssning
-                        </h3>
+                        <h3 class="activity-title">Wienprovning</h3>
                         <p class="activity-description">
-                            En avkopplande båttur längs Donau med middag och
-                            utsikt över Wiens vackra arkitektur. Perfekt för en
-                            romantisk kväll tillsammans.
+                            Innan Mathilda träffade Gustav trodde hon att hon
+                            var en kvinna som "bara dricker rödvin". Sen kom
+                            Gustav där och bjöd på ett Grüner Veltliner från
+                            Burgenland och resten är väl historia. Och
+                            förresten, Wien gränsar till just Burgenland..
                         </p>
                         <button
                             class="activity-button"
-                            onclick="openModal('Romantisk Donau-kryssning')"
+                            onclick="openModal('Wienprovning')"
                         >
                             Bidra till denna
                         </button>
