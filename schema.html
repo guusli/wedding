@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta
+            name="description"
+            content="Bröllopschema - Gustav & Mathilda"
+        />
+        <meta
+            property="og:title"
+            content="Bröllopschema - Gustav & Mathilda"
+        />
+        <meta
+            property="og:description"
+            content="Schema för vårt bröllop den 31 maj 2025"
+        />
+        <meta property="og:type" content="website" />
+        <title>Bröllopschema - Gustav & Mathilda</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            @font-face {
+                font-family: "Ahsing";
+                src: url("ahsing-regular.otf") format("opentype");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: "Coffekan Regular";
+                src: url("CoffekanRegular.ttf") format("truetype");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family:
+                    "Be Vietnam Pro",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                background: #fff7eb;
+                min-height: 100vh;
+                color: #477435;
+                line-height: 1.6;
+                font-size: 1.2em;
+            }
+
+            .container {
+                max-width: 620px;
+                margin: 0 auto;
+                padding: 0 20px;
+                background: #fff7eb url("bg.jpeg") center center no-repeat;
+                background-size: cover;
+                min-height: 100vh;
+                font-weight: 200;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Navigation */
+            .nav {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+
+            .nav-link {
+                color: #477435;
+                text-decoration: underline;
+            }
+
+            .nav-link:hover {
+                color: #365529;
+            }
+
+            .nav-link:visited {
+                color: #477435;
+            }
+
+            /* General link styles */
+            a {
+                color: #477435;
+                text-decoration: underline;
+            }
+
+            a:hover {
+                color: #365529;
+            }
+
+            a:visited {
+                color: #477435;
+            }
+
+            /* Content */
+            .content {
+                padding: 60px 40px 40px 40px;
+                margin-bottom: 40px;
+            }
+
+            .content h1 {
+                font-family: "Be Vietnam Pro", sans-serif;
+                font-size: 1.4rem;
+                color: #477435;
+                margin-bottom: 30px;
+                text-align: center;
+                font-weight: 400;
+            }
+
+            .content p {
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+                color: #477435;
+            }
+
+            .content p:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Responsive Design */
+            @media (min-width: 769px) {
+                .container {
+                    background-size: contain;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    background-size: cover;
+                    padding: 10px;
+                }
+
+                .content {
+                    padding: 40px 25px 30px 25px;
+                    margin-bottom: 30px;
+                }
+
+                .content h1 {
+                    font-size: 1.2rem;
+                }
+
+                .content p {
+                    font-size: 1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .content {
+                    padding: 30px 20px 25px 20px;
+                }
+
+                .content h1 {
+                    font-size: 1.2rem;
+                }
+            }
+        </style>
+    </head>
+    <body></body>
+
+        <div class="container">
+            <div class="content">
+                <h1>Schema</h1>
+
+                <p><strong>10.30</strong> Uppsamling vid Carl Eldhs ateljémuseum</p>
+
+                <p><strong>10.45</strong> Vigsel</p>
+
+                <p><strong>11.00</strong> Skål i museets trädgård</p>
+
+                <p><strong>11.30</strong> Promenad mot Portal bar påbörjas<br>(Promenaden inkluderar ett par stopp på vägen)</p>
+
+                <p><strong>13.00</strong> Lunch i Portal bars chambre separeé</p>
+
+                <p><strong>15.00</strong> Mingel så länge vi orkar</p>
+
+                <p style="text-align: left; margin-top: 30px;">
+                    <a href="information.html">← Tillbaka</a>
+                </p>
+            </div>
+        </div>
+
+        <script>
+            // Smooth fade-in animation
+            window.addEventListener("load", function () {
+                document.body.style.opacity = "0";
+                document.body.style.transition = "opacity 0.5s ease";
+
+                setTimeout(() => {
+                    document.body.style.opacity = "1";
+                }, 100);
+            });
+        </script>
+    </body>
+</html>
