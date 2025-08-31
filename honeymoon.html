@@ -283,14 +283,14 @@
                 font-size: 1.8rem;
                 font-weight: 600;
                 color: #477435;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
 
             .qr-code {
                 width: 200px;
                 height: 200px;
                 background: #000;
-                margin: 20px auto;
+                margin: 30px auto 40px auto;
                 border-radius: 10px;
                 display: flex;
                 align-items: center;
@@ -302,7 +302,20 @@
             .modal-instructions {
                 color: #6a6a6a;
                 line-height: 1.6;
+                margin-top: 10px;
+            }
+
+            .modal-instructions p:first-child {
+                margin-top: 0;
+            }
+
+            .modal-instructions p {
+                margin-bottom: 8px;
+            }
+
+            .modal-instructions p:has(strong) {
                 margin-top: 20px;
+                margin-bottom: 12px;
             }
 
             /* Responsive Design */
@@ -556,11 +569,25 @@
                 <h2 class="modal-title" id="modalTitle">
                     Bidra till aktivitet
                 </h2>
-                <div class="qr-code">QR-kod kommer här</div>
+                <div class="qr-code">
+                    <img
+                        id="qrCodeImage"
+                        src=""
+                        alt="QR Code"
+                        style="max-width: 100%; height: auto"
+                    />
+                </div>
                 <div class="modal-instructions">
                     <p><strong>Så här bidrar du:</strong></p>
                     <p>1. Scanna QR-koden med din telefon</p>
                     <p>2. Följ instruktionerna för att göra din gåva</p>
+                    <p><strong>Alternativt:</strong></p>
+                    <p>
+                        Swisha till 073-143 77 42 med meddelandet "<span
+                            id="swishMessage"
+                        ></span
+                        >"
+                    </p>
                     <p>3. Tack så mycket för ditt bidrag! ❤️</p>
                 </div>
             </div>
@@ -570,6 +597,40 @@
             function openModal(activityName) {
                 document.getElementById("modalTitle").textContent =
                     `Bidra till: ${activityName}`;
+
+                // Set the correct QR code image based on activity
+                const qrCodeImage = document.getElementById("qrCodeImage");
+                let qrCodePath = "";
+
+                switch (activityName) {
+                    case "Flygbiljetter":
+                        qrCodePath = "honeymoon-images/flygbiljetter-qr.jpg";
+                        break;
+                    case "Hummerkrautfleisch":
+                        qrCodePath = "honeymoon-images/hummer-qr.jpg";
+                        break;
+                    case "Diverse cykelturer":
+                        qrCodePath = "honeymoon-images/cykel-qr.jpg";
+                        break;
+                    case "Allt för konsten!":
+                        qrCodePath = "honeymoon-images/konst-qr.jpg";
+                        break;
+                    case "Operan! Igen!":
+                        qrCodePath = "honeymoon-images/opera-qr.jpg";
+                        break;
+                    case "Wienprovning":
+                        qrCodePath = "honeymoon-images/vin-qr.jpg";
+                        break;
+                    default:
+                        qrCodePath = "";
+                }
+
+                qrCodeImage.src = qrCodePath;
+
+                // Set the Swish message
+                document.getElementById("swishMessage").textContent =
+                    activityName;
+
                 document.getElementById("contributionModal").style.display =
                     "block";
                 document.body.style.overflow = "hidden";
